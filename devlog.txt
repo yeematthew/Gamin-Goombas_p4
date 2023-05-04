@@ -37,7 +37,18 @@ samanthaH -- 2022-05-02 21:05
 
 vanshS -- 2023-05-03 21:25
 --------------------------------------------------------------
-* Created proof of concept for Linear Regression 
+* Created proof of concept for Linear Regression
+==============================================================
+
+samanthaH -- 2022-05-03 22:50
+--------------------------------------------------------------
+feedback from design doc review:
+ * Site map is clear and comprehensive
+ * Suggestion to add other metrics to our data visualization to make it more interesting (ex: customer satisfaction)
+ * Suggestion to present the data in a way that is more interesting to the user
+ * Clarification is needed on what we meant by genre and global trends
+ * Component map and Database Organization is clear
+ * Need more clarity on the scatterplot graph idea
 ==============================================================
 
 template:
