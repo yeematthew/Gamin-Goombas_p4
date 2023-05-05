@@ -7,11 +7,42 @@ from flask import request  # facilitate form submission
 from flask import session
 from flask import Response
 import sqlite3, requests, os, json, datetime
+import pandas as pd
+# import pyodbc
 #from db import get_user_by_username, add_user, check_username, get_orders, get_order, get_users
 
 app = Flask(__name__)  # create Flask object
 
 dirname = os.path.dirname(__file__)
+
+data = pd.read_csv("../dataset/vgsales.csv")
+df = pd.DataFrame(data)
+
+print(df)
+
+DB_FILE = "sales.db"
+db = sqlite3.connect(DB_FILE, check_same_thread=False) #open if file exists, otherwise create
+c = db.cursor()
+
+c.execute('''
+		CREATE TABLE IF NOT EXISTS products (
+			product_id int primary key,
+			product_name nvarchar(50),
+			price int
+			)
+        ''')#CHANGE ME TO REPRESENT CSV COLUMNS
+
+for row in df.itertuples():
+    c.execute('''
+                INSERT INTO products (product_id, product_name, price)
+                VALUES (?,?,?)
+                ''',
+                row.product_id, 
+                row.product_name,
+                row.price
+                )#CHANGE ME TO REFLECT TABLE
+conn.commit()
+
 
 #VG_DB_FILE = ".db"
 #db = sqlite3.connect(USER_DB_FILE, check_same_thread=False) #open if file exists, otherwise create
@@ -35,6 +66,7 @@ def europe():
 def northAmerica():
     return render_template('northAmerica.html')
 
+'''
 # do we need?
 @app.route("/api/products/trending", methods=["GET"])
 def trending():
@@ -43,6 +75,7 @@ def trending():
     )
     data = response.json()
     return data
+'''
 
 if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified

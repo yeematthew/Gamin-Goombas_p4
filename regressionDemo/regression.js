@@ -30,6 +30,8 @@ var wipeCanvas = function(){
     ctx.clearRect(0, 0, 600, 600);
 }
 
+// Least Squares Algorithm
+
 var drawRegLine = function(){
 	if(coordinates.length <= 1){
 		return;
@@ -55,14 +57,14 @@ var drawRegLine = function(){
 	b = ymean - m * xmean;
 	ctx.beginPath();
 	ctx.strokeStyle = "black";
-	ctx.moveTo(0, b);
+	ctx.moveTo(0,  b);
 	ctx.lineTo(600, 600 * m + b);
 	ctx.stroke();
-	console.log("y" + " = " + m + "x + " + b);
+	console.log("y" + " = " + m + "x + " + b); // Later, have this display in the HTML + correlation statistics with r^2
 }
 
 
-c.addEventListener("click", draw);
+c.addEventListener("click", draw); 
 
 
 var clearB = document.getElementById("buttonClear");
