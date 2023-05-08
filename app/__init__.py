@@ -1,4 +1,4 @@
-# Gamin Goombas: Matthew Yee, Samanthan Hua, Vivian Graeber, and Vansh Saboo
+# Gamin Goombas: Matthew Yee, Samantha Hua, Vivian Graeber, and Vansh Saboo
 # SoftDev
 
 from flask import Flask, jsonify  # facilitate flask webserving
@@ -13,36 +13,60 @@ import pandas as pd
 
 app = Flask(__name__)  # create Flask object
 
-dirname = os.path.dirname(__file__)
+# dirname = os.path.dirname(__file__)
 
 data = pd.read_csv("../dataset/vgsales.csv")
 df = pd.DataFrame(data)
 
-print(df)
+# print(df)
 
 DB_FILE = "sales.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False) #open if file exists, otherwise create
 c = db.cursor()
 
-c.execute('''
-		CREATE TABLE IF NOT EXISTS products (
-			product_id int primary key,
-			product_name nvarchar(50),
-			price int
-			)
-        ''')#CHANGE ME TO REPRESENT CSV COLUMNS
+# c.execute('''DROP TABLE video_games''') # allows for repopulation of db. will not need later on. can research alternatives where the table is simply overwritten or we only populate once at the start
 
+c.execute('''
+		CREATE TABLE IF NOT EXISTS video_games (
+			id INTEGER primary key,
+			game_name TEXT,
+			platform TEXT,
+			year INTEGER,
+			genre TEXT,
+			publisher TEXT,
+			NA_Sales INTEGER,
+			EU_Sales INTEGER,
+			JP_Sales INTEGER,
+			Other_Sales INTEGER
+			)
+        ''')
+
+#code will currently replace all values that were previously in the db with the same id
+#avoids a not all entries have a unique id error
 for row in df.itertuples():
     c.execute('''
-                INSERT INTO products (product_id, product_name, price)
-                VALUES (?,?,?)
+                INSERT OR REPLACE INTO video_games (id, game_name, platform, year, genre, publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales)
+                VALUES (?,?,?,?,?,?,?,?,?,?)
                 ''',
-                row.product_id, 
-                row.product_name,
-                row.price
-                )#CHANGE ME TO REFLECT TABLE
-conn.commit()
+                (row.Rank,
+                row.Name,
+				row.Platform,
+				row.Year,
+				row.Genre,
+				row.Publisher,
+				row.NA_Sales,
+				row.EU_Sales,
+				row.JP_Sales,
+				row.Other_Sales)
+                )
+# column in df named Global_Sales is not inserted into db
+# Rank column in df was used for ID
 
+# c.execute('''SELECT * FROM video_games WHERE id=1''') # not working. returning a sqlite object
+
+# HAVE NOT CHECKED IF IT IS WORKING AS INTENDED. DOES NOT CREATE ERROR CURRENTLY
+
+db.commit()
 
 #VG_DB_FILE = ".db"
 #db = sqlite3.connect(USER_DB_FILE, check_same_thread=False) #open if file exists, otherwise create

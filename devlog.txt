@@ -51,6 +51,12 @@ feedback from design doc review:
  * Need more clarity on the scatterplot graph idea
 ==============================================================
 
+samanthaH -- 2022-05-07 23:47
+--------------------------------------------------------------
+* Updated __init__.py so the db gets correctly populated
+* Fixed up the CSV to DB data transition 
+==============================================================
+
 template:
 
 fnameL -- 2022-05-xx xx:xx
