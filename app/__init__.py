@@ -62,15 +62,7 @@ for row in df.itertuples():
 # column in df named Global_Sales is not inserted into db
 # Rank column in df was used for ID
 
-# c.execute('''SELECT * FROM video_games WHERE id=1''') # not working. returning a sqlite object
-
-# HAVE NOT CHECKED IF IT IS WORKING AS INTENDED. DOES NOT CREATE ERROR CURRENTLY
-
 db.commit()
-
-#VG_DB_FILE = ".db"
-#db = sqlite3.connect(USER_DB_FILE, check_same_thread=False) #open if file exists, otherwise create
-#c = db.cursor()
 
 # custom render_template function that adds the username to the template
 
