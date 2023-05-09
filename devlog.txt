@@ -70,11 +70,16 @@ samanthaH -- 2022-05-07 23:47
 * Fixed up the CSV to DB data transition 
 ==============================================================
 
-matthewY -- 2022-05-08 13:20
+matthewY -- 2022-05-09 13:20
 --------------------------------------------------------------
-*
-*
+* Constructed a rough plan for passing data from database from SQL to JS (everyone contributed)
+  1. User will press a button or otherwise interact with the website on the front-end
+  2. Request is relayed to back-end via form, and a SQL request is made to the database using Python.
+  3. Results of the request are converted into a JSON.
+  4. JSON is relayed to front-end using a Flask API, which serves as our data conduit.
+  5. JS fetches the JSON, from which it can access the requested data.
 ==============================================================
+
 
 
 template:
