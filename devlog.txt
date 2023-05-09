@@ -80,7 +80,11 @@ matthewY -- 2022-05-09 13:20
   5. JS fetches the JSON, from which it can access the requested data.
 ==============================================================
 
-
+matthewY -- 2022-05-09 19:30
+--------------------------------------------------------------
+* Updated requirements.txt to meet checkpoint
+* Added launch codes
+==============================================================
 
 template:
 
