@@ -12,7 +12,6 @@ app = Flask(__name__)  # create Flask object
 def index():
     return render_template('test.html')
 
-
 if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified
     app.debug = True

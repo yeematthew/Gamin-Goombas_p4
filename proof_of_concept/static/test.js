@@ -4,6 +4,7 @@ console.log("js file is correctly connected to the html file")
 
 para = document.getElementById("para")
 
+/*
 // fetch('http://127.0.0.1:3000')
 //     .then(response => {
 //         return response.json();
@@ -11,12 +12,18 @@ para = document.getElementById("para")
 //     .then(users => {
 //         console.log(users);
 //     })
+*/
 
 async function logJSONData() {
-    const response = await fetch("http://127.0.0.1:5000");
-    const jsonData = await response.json();
-    console.log(jsonData);
-    }
+    // const response = await fetch("http://127.0.0.1:3000");
+    // const jsonData = await response.json();
+    // console.log(jsonData);
+    // para.innerHTML = jsonData
+    let url = "http://127.0.0.1:5000";
+    let request = new Request(url, {
+
+    });
+}
     //  http://127.0.0.1:3000
 
       
@@ -51,4 +58,5 @@ async function logJSONData() {
 
 // )
 
-para.innerHTML = JSON.parse(logJSONData());
+logJSONData();
+// para.innerHTML = JSON.parse(logJSONData());
