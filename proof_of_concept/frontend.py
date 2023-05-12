@@ -8,7 +8,7 @@ import pandas as pd
 
 app = Flask(__name__)  # create Flask object
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('test.html')
 

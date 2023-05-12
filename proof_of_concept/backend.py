@@ -15,7 +15,7 @@ c = db.cursor()
 
 # c.execute('''.mode json''')
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET", "POST"])
 def returnData():
     # data = request.get_json() #fix
     # data = jsonify(data) #fix
@@ -23,7 +23,9 @@ def returnData():
     # data = c.execute('SELECT * FROM video_games')
     data = c.execute('''SELECT json_group_array(json_object('game_name', game_name, 'platform', platform)) AS json_result
 FROM (SELECT * FROM video_games)''')
-    return data
+    print("ran")
+    print(data)
+    return render_template('test.html')
 
 if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified
