@@ -86,11 +86,19 @@ matthewY -- 2022-05-09 19:30
 * Added launch codes
 ==============================================================
 
-matthewY -- 2022-05-15 21:35
+matthewY, vanshS, vivianG, samanthaH -- 2022-05-15 21:35
 --------------------------------------------------------------
 * Got conversion of SQL query results to Python dictionary working
 * Successfully converted Python dictionary to JSON file
 ==============================================================
+
+samanthaH -- 2022-05-15 21:22
+--------------------------------------------------------------
+* Came to the group call late so worked extra on the backend
+* Fixed reading of the JSON file in JS
+* Consolidated the frontend and backend because it doesn't need to be two flask apps
+==============================================================
+
 
 template:
 
