@@ -86,6 +86,12 @@ matthewY -- 2022-05-09 19:30
 * Added launch codes
 ==============================================================
 
+matthewY -- 2022-05-15 21:35
+--------------------------------------------------------------
+* Got conversion of SQL query results to Python dictionary working
+* Successfully converted Python dictionary to JSON file
+==============================================================
+
 template:
 
 fnameL -- 2022-05-xx xx:xx
