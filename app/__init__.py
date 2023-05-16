@@ -37,7 +37,8 @@ c.execute('''
 			NA_Sales INTEGER,
 			EU_Sales INTEGER,
 			JP_Sales INTEGER,
-			Other_Sales INTEGER
+			Other_Sales INTEGER,
+            Global_Sales INTEGER
 			)
         ''')
 
@@ -45,8 +46,8 @@ c.execute('''
 #avoids a not all entries have a unique id error
 for row in df.itertuples():
     c.execute('''
-                INSERT OR REPLACE INTO video_games (id, game_name, platform, year, genre, publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales)
-                VALUES (?,?,?,?,?,?,?,?,?,?)
+                INSERT OR REPLACE INTO video_games (id, game_name, platform, year, genre, publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales, Global_Sales)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?)
                 ''',
                 (row.Rank,
                 row.Name,
@@ -57,7 +58,8 @@ for row in df.itertuples():
 				row.NA_Sales,
 				row.EU_Sales,
 				row.JP_Sales,
-				row.Other_Sales)
+				row.Other_Sales,
+                row.Global_Sales)
                 )
 # column in df named Global_Sales is not inserted into db
 # Rank column in df was used for ID
