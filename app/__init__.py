@@ -8,8 +8,6 @@ from flask import session
 from flask import Response
 import sqlite3, requests, os, json, datetime
 import pandas as pd
-# import pyodbc
-#from db import get_user_by_username, add_user, check_username, get_orders, get_order, get_users
 
 app = Flask(__name__)  # create Flask object
 
@@ -34,11 +32,11 @@ c.execute('''
 			year INTEGER,
 			genre TEXT,
 			publisher TEXT,
-			NA_Sales INTEGER,
-			EU_Sales INTEGER,
-			JP_Sales INTEGER,
-			Other_Sales INTEGER,
-            Global_Sales INTEGER
+			NA_Sales REAL,
+			EU_Sales REAL,
+			JP_Sales REAL,
+			Other_Sales REAL,
+            Global_Sales REAL
 			)
         ''')
 
@@ -65,6 +63,44 @@ for row in df.itertuples():
 # Rank column in df was used for ID
 
 db.commit()
+
+#SQL to JSON conversion
+def sqlToJSON():
+
+    temp = "Wii" # Temporary for now, will use other platforms later based on user selection
+    data = c.execute("SELECT * FROM video_games WHERE Platform=?", (temp, ))
+    results = c.fetchall()
+    print("ran")
+    print(results)
+    features = []
+    for row in results:
+        feature = {
+            "Rank": row[0],
+            "Name": row[1],
+            "Platform": row[2],
+            "Year": row[3],
+            "Genre": row[4],
+            "Publisher": row[5],
+            "NA_Sales": row[6],
+            "EU_Sales": row[7], 
+            "JP_Sales": row[8],
+            "Other_Sales": row[9],
+            "Global_Sales": row[10], 
+        }
+        features.append(feature)
+
+    print(features)
+
+    #gamejson = {"type": "FeatureCollection", "features": []}
+
+    #gamejson["features"] = features
+
+    #dict to json conversion
+    with open("static/thing.json", "w") as f:
+        f.write(json.dumps(features))
+
+    return
+
 
 # custom render_template function that adds the username to the template
 
@@ -99,3 +135,4 @@ if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified
     app.debug = True
     app.run()
+

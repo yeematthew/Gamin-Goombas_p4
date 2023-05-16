@@ -30,7 +30,7 @@ def index():
             "EU_Sales": row[7], 
             "JP_Sales": row[8],
             "Other_Sales": row[9],
-            #"Global_Sales": row[10], # Create the Global_Sales in the DB later
+            # "Global_Sales": row[10], # Create the Global_Sales in the DB later
         }
         features.append(feature)
 
