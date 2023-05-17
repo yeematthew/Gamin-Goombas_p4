@@ -11,7 +11,8 @@ c = db.cursor()
 
 @app.route('/', methods=['GET'])
 def index():
-
+    return render_template('test.html')
+'''
     temp = "Wii" # Temporary for now, will use other platforms later based on user selection
     data = c.execute("SELECT * FROM video_games WHERE Platform=?", (temp, ))
     results = c.fetchall()
@@ -42,8 +43,8 @@ def index():
 
     with open("static/thing.json", "w") as f:
         f.write(json.dumps(features))
-
-    return render_template('test.html')
+'''
+    # return render_template('test.html')
 
 if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified
