@@ -23,13 +23,13 @@ vanshS -- 2023-04-29 2:47
 * Created team flag
 ==============================================================
 
-vivianG -- 2022-05-01 13:10
+vivianG -- 2023-05-01 13:10
 --------------------------------------------------------------
 * Built out repo
 * Added .gitignore file
 ==============================================================
 
-samanthaH -- 2022-05-02 21:05
+samanthaH -- 2023-05-02 21:05
 --------------------------------------------------------------
 * Adding design doc
 * Note: Everyone worked on the design doc from 20:00 to 21:05
@@ -40,7 +40,7 @@ vanshS -- 2023-05-03 21:25
 * Created proof of concept for Linear Regression
 ==============================================================
 
-samanthaH -- 2022-05-03 22:50
+samanthaH -- 2023-05-03 22:50
 --------------------------------------------------------------
 feedback from design doc review:
  * Site map is clear and comprehensive
@@ -51,7 +51,7 @@ feedback from design doc review:
  * Need more clarity on the scatterplot graph idea
 ==============================================================
 
-matthewY -- 2022-05-03 22:50
+matthewY -- 2023-05-03 22:50
 --------------------------------------------------------------
 * updated/revised design doc based on feedback
 * made description of main page more detailed
@@ -59,18 +59,18 @@ matthewY -- 2022-05-03 22:50
 * added link to dataset being used
 ==============================================================
 
-matthewY -- 2022-05-05 13:10
+matthewY -- 2023-05-05 13:10
 --------------------------------------------------------------
 * Began work on converting downloaded CSV to table in database
 ==============================================================
 
-samanthaH -- 2022-05-07 23:47
+samanthaH -- 2023-05-07 23:47
 --------------------------------------------------------------
 * Updated __init__.py so the db gets correctly populated
 * Fixed up the CSV to DB data transition 
 ==============================================================
 
-matthewY -- 2022-05-09 13:20
+matthewY -- 2023-05-09 13:20
 --------------------------------------------------------------
 * Constructed a rough plan for passing data from database from SQL to JS (everyone contributed)
   1. User will press a button or otherwise interact with the website on the front-end
@@ -80,29 +80,38 @@ matthewY -- 2022-05-09 13:20
   5. JS fetches the JSON, from which it can access the requested data.
 ==============================================================
 
-matthewY -- 2022-05-09 19:30
+matthewY -- 2023-05-09 19:30
 --------------------------------------------------------------
 * Updated requirements.txt to meet checkpoint
 * Added launch codes
 ==============================================================
 
-matthewY, vanshS, vivianG, samanthaH -- 2022-05-15 21:35
+matthewY, vanshS, vivianG, samanthaH -- 2023-05-15 21:35
 --------------------------------------------------------------
 * Got conversion of SQL query results to Python dictionary working
 * Successfully converted Python dictionary to JSON file
 ==============================================================
 
-samanthaH -- 2022-05-15 21:22
+samanthaH -- 2023-05-15 21:22
 --------------------------------------------------------------
 * Came to the group call late so worked extra on the backend
 * Fixed reading of the JSON file in JS
 * Consolidated the frontend and backend because it doesn't need to be two flask apps
 ==============================================================
 
+matthewY -- 2023-05-18 22:30
+--------------------------------------------------------------
+* Summary of 2023-05-18 tour
+ - Use onload to run functions defined in JS as soon as a template is loaded (initalization/population of data tables for backend to frontend)
+ - Instead of D3, Chart.js seems to be the more commonly used alternative (more customizable)
+ - Other alternative to D3 is Google Charts (extensive documentation, easy to use)
+ - Check out the McMapping Delectable Duckies for JSON file interactions
+==============================================================
+
 
 template:
 
-fnameL -- 2022-05-xx xx:xx
+fnameL -- 2023-05-xx xx:xx
 --------------------------------------------------------------
 *
 *
