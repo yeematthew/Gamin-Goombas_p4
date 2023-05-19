@@ -72,6 +72,7 @@ def sqlToJSON():
     results = c.fetchall()
     print("ran")
     print(results)
+    '''
     features = []
     for row in results:
         feature = {
@@ -96,17 +97,29 @@ def sqlToJSON():
     #gamejson["features"] = features
 
     #dict to json conversion
+    
+    
     with open("static/thing.json", "w") as f:
         f.write(json.dumps(features))
 
     return
+    '''
+# blahblah = [{
+# 	"id": 100,
+# 	"color": 5,
+# 	"text": "yay"
+# }, {
+# 	"id": 200,
+# 	"color": 5,
+# 	"text": "yay"
+# }]
 
-
+blahblah = {"blah": 34, "kay":10}
 # custom render_template function that adds the username to the template
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', db=**blahblah)
 
 @app.route('/japan', methods=['GET', 'POST'])
 def japan():
@@ -120,16 +133,6 @@ def europe():
 def northAmerica():
     return render_template('northAmerica.html')
 
-'''
-# do we need?
-@app.route("/api/products/trending", methods=["GET"])
-def trending():
-    response = requests.get(
-        f"https://api.bestbuy.com/v1/products/trendingViewed?apiKey={bestBuyKey}&format=json&show=sku,name,salePrice,image&pageSize=20"
-    )
-    data = response.json()
-    return data
-'''
 
 if __name__ == "__main__":  # false if this file imported as module
     # enable debugging, auto-restarting of server when this file is modified
