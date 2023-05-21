@@ -6,15 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../static/css/style.css" rel="stylesheet">
         <title>Gamin' Goombas</title>
+
+        <script>
+            
+            var americanSalesin2011 = JSON.parse('{{ americanSalesin2011 | tojson | safe }}')
+        </script>
     </head>
-    <body onload=initialize({{db}})>
+    <body onload=init(americanSalesin2011)>
         <h1> index </h1>
         <a href="/europe"> europe </a>
         <a href="/japan"> japan </a>
         <a href="/northAmerica"> north america </a>
 
-        <p id="para"> </p>
+        <canvas id="totalAmericanSalesin2011"></canvas>
+
         <!-- <script src="test.js"></script> -->
         <script src="../static/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 </html>

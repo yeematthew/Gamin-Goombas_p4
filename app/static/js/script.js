@@ -1,23 +1,44 @@
-// function fact(x) {
-//     if (x < 2) {
-//         return 1 // base case
-//     }
-//     return x*fact(x-1)
-// }
+function init(americanSalesin2011) {
+    // console.log(data)
+    console.log(americanSalesin2011);
+    const ctx = document.getElementById('totalAmericanSalesin2011');
 
-// c=document.getElementById("para")
-// c.innerHTML = fact(3)
-// console.log(c.innerHTML)
-// console.log("ran")
+    var sports = 0;
+    var action = 0;
+    var fighting = 0;
 
-function initialize(data) {
-    console.log("working")
-    console.log(data)
-    console.log(data["blah"])
+    for (dataPoint in americanSalesin2011) {
+        // console.log(americanSalesin2011[dataPoint].NA_Sales)
+        if (americanSalesin2011[dataPoint].Genre == "Fighting") {
+            fighting += americanSalesin2011[dataPoint].NA_Sales
+        }
+        else if (americanSalesin2011[dataPoint].Genre == "Sports") {
+            sports += americanSalesin2011[dataPoint].NA_Sales
+        }
+        else if (americanSalesin2011[dataPoint].Genre == "Action") {
+            action += americanSalesin2011[dataPoint].NA_Sales
+        }
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['fighting', 'sports', 'action'],
+        datasets: [{
+            label: '# of Votes',
+            data: [fighting, sports, action],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
 }
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database("sales.db");
-
-
-console.log("ran")
+// DOESN'T GO HERE GOES IN INDEX.HTML BUT IT THROWS AN ERROR WHEN IT'S THERE
+// var allData = JSON.parse('{{ db | tojson | safe }}');

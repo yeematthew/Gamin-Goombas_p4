@@ -65,14 +65,16 @@ for row in df.itertuples():
 db.commit()
 
 #SQL to JSON conversion
-def sqlToJSON():
-
-    temp = "Wii" # Temporary for now, will use other platforms later based on user selection
-    data = c.execute("SELECT * FROM video_games WHERE Platform=?", (temp, ))
+def sqlToJSON(query):
+    # select = ""
+    # query = "Wii" # Temporary for now, will use other platforms later based on user selection
+    data = c.execute("SELECT * FROM video_games WHERE Year=?", (query,))
+    # data = c.execute("SELECT ? FROM video_games", (select))
+    # data = c.execute("SELECT ? FROM video_games WHERE ?", (select, query))
     results = c.fetchall()
     print("ran")
     print(results)
-    '''
+    
     features = []
     for row in results:
         feature = {
@@ -90,7 +92,7 @@ def sqlToJSON():
         }
         features.append(feature)
 
-    print(features)
+    # print(features)
 
     #gamejson = {"type": "FeatureCollection", "features": []}
 
@@ -98,28 +100,18 @@ def sqlToJSON():
 
     #dict to json conversion
     
+    # DELETE? DON'T NEED TO WRITE TO EXTRA FILE NOW
+    # with open("static/thing.json", "w") as f:
+    #     f.write(json.dumps(features))
+    print(features)
+    return features
     
-    with open("static/thing.json", "w") as f:
-        f.write(json.dumps(features))
-
-    return
-    '''
-# blahblah = [{
-# 	"id": 100,
-# 	"color": 5,
-# 	"text": "yay"
-# }, {
-# 	"id": 200,
-# 	"color": 5,
-# 	"text": "yay"
-# }]
-
-blahblah = {"blah": 34, "kay":10}
 # custom render_template function that adds the username to the template
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', db=**blahblah)
+    # blahblah={'firstname': 'Harry', 'lastname': 'Potter'}
+    return render_template('index.html', americanSalesin2011=sqlToJSON(2011))
 
 @app.route('/japan', methods=['GET', 'POST'])
 def japan():

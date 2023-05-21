@@ -108,6 +108,14 @@ matthewY -- 2023-05-18 22:30
  - Check out the McMapping Delectable Duckies for JSON file interactions
 ==============================================================
 
+samanthaH -- 2023-05-21 02:30
+--------------------------------------------------------------
+* Discovered workaround to pass data in JSON format into js. (using onload, an init function, JSON.parse() in template instead of in script.js (don't know why that matters but it creates error otherwise), quotations around {{}} T-T this was a hard one to figure out)
+* Discovered issues with ? replacement in SQL (can't use * as an argument and you also can't use whole queries (like "Year=2011") as arguments)
+* Created workaround of SQL complications -> sort through JSON data in js
+* Used chart.js to create a simple bar graph to prove that the data can be used
+==============================================================
+
 
 template:
 
