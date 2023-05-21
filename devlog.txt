@@ -116,9 +116,15 @@ samanthaH -- 2023-05-21 02:30
 * Used chart.js to create a simple bar graph to prove that the data can be used
 ==============================================================
 
-vanshS -- 2023-05-21 2:08
+vanshS -- 2023-05-21 14:08
 --------------------------------------------------------------
 * Created bar graphs for all three regions, representing total sales per year (may truncate data past 2016 - insignificant data)
+==============================================================
+
+vanshS -- 2023-05-21 15:39
+--------------------------------------------------------------
+* Worked on dropdown menu for northAmerica page to select genre - running into issue as follows:
+"Uncaught Error: Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'totalAmericanSales' can be reused."
 ==============================================================
 
 template:

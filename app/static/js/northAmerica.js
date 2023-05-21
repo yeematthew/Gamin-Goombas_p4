@@ -1,7 +1,10 @@
 function init(americanSales) {
-    // console.log(data)
     console.log(americanSales);
     const ctx = document.getElementById('totalAmericanSales');
+
+
+    var dropdown = document.getElementById("genreDropdown");
+    var selectedOption = dropdown.value;
 
     var years = [];
     for (var i = 1980; i <= 2020; i++) {
@@ -17,15 +20,16 @@ function init(americanSales) {
         yearsData[year - 1980] += americanSales[dataPoint].NA_Sales;
     }
 
-    // console.log(yearsData);
+
     
+
 
     new Chart(ctx, {
         type: 'bar',
         data: {
         labels: years,
         datasets: [{
-            label: '# of Sales (in millions)',
+            label: "# of " + selectedOption + " Sales (in millions)",
             data: yearsData,
             borderWidth: 1
         }]

@@ -20,6 +20,8 @@ function init(americanSalesin2011) {
         }
     }
 
+    var gameTypes = new Set();
+
     new Chart(ctx, {
         type: 'bar',
         data: {

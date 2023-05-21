@@ -7,14 +7,27 @@
         <link href="../static/css/northAmerica.css" rel="stylesheet">
         <title>North America</title>
         <script>
-            
+            var genre = "Action"
             var americanSales = JSON.parse('{{ americanSales | tojson | safe }}')
         </script>
     </head>
     <body onload=init(americanSales)>
         <h1> North America </h1>
         <a href="/"> back </a>
-
+        <select id="genreDropdown" onchange=init(americanSales)>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Misc">Misc</option>
+            <option value="Platform">Platform</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+          </select>   
         <canvas id="totalAmericanSales"></canvas>
 
         <!-- <script src="test.js"></script> -->
