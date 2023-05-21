@@ -116,6 +116,10 @@ samanthaH -- 2023-05-21 02:30
 * Used chart.js to create a simple bar graph to prove that the data can be used
 ==============================================================
 
+vanshS -- 2023-05-21 1:14
+--------------------------------------------------------------
+* Worked on making a bar graph for North America
+==============================================================
 
 template:
 

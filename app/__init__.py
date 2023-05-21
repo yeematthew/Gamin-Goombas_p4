@@ -106,8 +106,31 @@ def sqlToJSON(query):
     print(features)
     return features
     
-# custom render_template function that adds the username to the template
+#SQL to JSON conversion
+def sqlToJSON2():
+    c.execute("SELECT * FROM video_games")
+    results = c.fetchall()
+    
+    features = []
+    for row in results:
+        feature = {
+            "Rank": row[0],
+            "Name": row[1],
+            "Platform": row[2],
+            "Year": row[3],
+            "Genre": row[4],
+            "Publisher": row[5],
+            "NA_Sales": row[6],
+            "EU_Sales": row[7], 
+            "JP_Sales": row[8],
+            "Other_Sales": row[9],
+            "Global_Sales": row[10], 
+        }
+        features.append(feature)
 
+    return features
+
+# custom render_template function that adds the username to the template
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # blahblah={'firstname': 'Harry', 'lastname': 'Potter'}
@@ -123,7 +146,7 @@ def europe():
 
 @app.route('/northAmerica', methods=['GET', 'POST'])
 def northAmerica():
-    return render_template('northAmerica.html')
+    return render_template('northAmerica.html', americanSalesin2011=sqlToJSON2())
 
 
 if __name__ == "__main__":  # false if this file imported as module
