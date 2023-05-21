@@ -138,15 +138,15 @@ def index():
 
 @app.route('/japan', methods=['GET', 'POST'])
 def japan():
-    return render_template('japan.html')
+    return render_template('japan.html', japaneseSales=sqlToJSON2())
 
 @app.route('/europe', methods=['GET', 'POST'])
 def europe():
-    return render_template('europe.html')
+    return render_template('europe.html', europeSales=sqlToJSON2())
 
 @app.route('/northAmerica', methods=['GET', 'POST'])
 def northAmerica():
-    return render_template('northAmerica.html', americanSalesin2011=sqlToJSON2())
+    return render_template('northAmerica.html', americanSales=sqlToJSON2())
 
 
 if __name__ == "__main__":  # false if this file imported as module

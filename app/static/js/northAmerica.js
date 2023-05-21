@@ -1,32 +1,32 @@
-function init(americanSalesin2011) {
+function init(americanSales) {
     // console.log(data)
-    console.log(americanSalesin2011);
-    const ctx = document.getElementById('totalAmericanSalesin2011');
+    console.log(americanSales);
+    const ctx = document.getElementById('totalAmericanSales');
 
-    var sports = 0;
-    var action = 0;
-    var fighting = 0;
-
-    for (dataPoint in americanSalesin2011) {
-        // console.log(americanSalesin2011[dataPoint].NA_Sales)
-        if (americanSalesin2011[dataPoint].Genre == "Fighting") {
-            fighting += americanSalesin2011[dataPoint].NA_Sales
-        }
-        else if (americanSalesin2011[dataPoint].Genre == "Sports") {
-            sports += americanSalesin2011[dataPoint].NA_Sales
-        }
-        else if (americanSalesin2011[dataPoint].Genre == "Action") {
-            action += americanSalesin2011[dataPoint].NA_Sales
-        }
+    var years = [];
+    for (var i = 1980; i <= 2020; i++) {
+        years.push(String(i));
     }
+
+    var yearsData = [];
+    for (var i = 1980; i <= 2020; i++) {
+        yearsData.push(0); // The list is still 0-indexed, remember to subtract 1980 from the year accordingly
+    }
+    for(dataPoint in americanSales){
+        year = americanSales[dataPoint].Year;        
+        yearsData[year - 1980] += americanSales[dataPoint].NA_Sales;
+    }
+
+    // console.log(yearsData);
+    
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['fighting', 'sports', 'action'],
+        labels: years,
         datasets: [{
-            label: '# of Votes (in millions)',
-            data: [fighting, sports, action],
+            label: '# of Sales (in millions)',
+            data: yearsData,
             borderWidth: 1
         }]
         },
@@ -39,6 +39,3 @@ function init(americanSalesin2011) {
         }
     });
 }
-
-// DOESN'T GO HERE GOES IN INDEX.HTML BUT IT THROWS AN ERROR WHEN IT'S THERE
-// var allData = JSON.parse('{{ db | tojson | safe }}');

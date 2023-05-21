@@ -116,9 +116,9 @@ samanthaH -- 2023-05-21 02:30
 * Used chart.js to create a simple bar graph to prove that the data can be used
 ==============================================================
 
-vanshS -- 2023-05-21 1:14
+vanshS -- 2023-05-21 2:08
 --------------------------------------------------------------
-* Worked on making a bar graph for North America
+* Created bar graphs for all three regions, representing total sales per year (may truncate data past 2016 - insignificant data)
 ==============================================================
 
 template:

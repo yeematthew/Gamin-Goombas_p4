@@ -8,14 +8,14 @@
         <title>North America</title>
         <script>
             
-            var americanSalesin2011 = JSON.parse('{{ americanSalesin2011 | tojson | safe }}')
+            var americanSales = JSON.parse('{{ americanSales | tojson | safe }}')
         </script>
     </head>
-    <body onload=init(americanSalesin2011)>
+    <body onload=init(americanSales)>
         <h1> North America </h1>
         <a href="/"> back </a>
 
-        <canvas id="totalAmericanSalesin2011"></canvas>
+        <canvas id="totalAmericanSales"></canvas>
 
         <!-- <script src="test.js"></script> -->
         <script src="../static/js/northAmerica.js"></script>

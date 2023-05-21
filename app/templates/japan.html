@@ -6,12 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../static/css/japan.css" rel="stylesheet">
         <title>Japan</title>
-        
+        <script>
+            
+            var japanSales = JSON.parse('{{ japaneseSales | tojson | safe }}')
+        </script>
     </head>
-    <body>
-        <h1> japan </h1>
-        <p id="test"> </p>
-        <script src="../static/js/japan.js"></script>
+    <body onload=init(japanSales)>
+        <h1> Japan </h1>
+        <a href="/"> back </a>
 
+        <canvas id="totalJapaneseSales"></canvas>
+
+        <!-- <script src="test.js"></script> -->
+        <script src="../static/js/japan.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 </html>
