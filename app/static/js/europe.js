@@ -9,7 +9,7 @@ function init(europeSales) {
     }
 
     var yearsData = [];
-    for (var i = 1980; i <= 2020; i++) {
+    for (var i = 1980; i <= 2015; i++) {
         yearsData.push(0); // The list is still 0-indexed, remember to subtract 1980 from the year accordingly
     }
     for(dataPoint in europeSales){
@@ -19,8 +19,8 @@ function init(europeSales) {
 
     // console.log(yearsData);
     
-
-    new Chart(ctx, {
+    
+    var chart = new Chart(ctx, {
         type: 'bar',
         data: {
         labels: years,
@@ -38,5 +38,6 @@ function init(europeSales) {
         }
         }
     });
+    chart.destroy();
 }
 

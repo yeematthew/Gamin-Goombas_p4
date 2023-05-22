@@ -1,3 +1,5 @@
+var chart;
+
 function init(americanSales) {
     console.log(americanSales);
     const ctx = document.getElementById('totalAmericanSales');
@@ -13,7 +15,7 @@ function init(americanSales) {
 
     var yearsData = [];
     for (var i = 1980; i <= 2020; i++) {
-        yearsData.push(0); // The list is still 0-indexed, remember to subtract 1980 from the year accordingly
+        yearsData.push(0); // ThmyChart.destroy();e list is still 0-indexed, remember to subtract 1980 from the year accordingly
     }
     for(dataPoint in americanSales){
         year = americanSales[dataPoint].Year;        
@@ -23,8 +25,8 @@ function init(americanSales) {
 
     
 
-
-    new Chart(ctx, {
+    // chart.destroy();
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
         labels: years,
@@ -42,4 +44,5 @@ function init(americanSales) {
         }
         }
     });
+    // chart.destroy();
 }

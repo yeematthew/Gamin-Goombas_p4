@@ -4,12 +4,12 @@ function init(japaneseSales) {
     const ctx = document.getElementById('totalJapaneseSales');
 
     var years = [];
-    for (var i = 1980; i <= 2020; i++) {
+    for (var i = 1980; i <= 2015; i++) {
         years.push(String(i));
     }
 
     var yearsData = [];
-    for (var i = 1980; i <= 2020; i++) {
+    for (var i = 1980; i <= 2015; i++) {
         yearsData.push(0); // The list is still 0-indexed, remember to subtract 1980 from the year accordingly
     }
     for(dataPoint in japaneseSales){

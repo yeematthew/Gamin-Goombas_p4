@@ -65,15 +65,20 @@ for row in df.itertuples():
 db.commit()
 
 #SQL to JSON conversion
-def sqlToJSON(query):
+def sqlToJSON(category, query):
     # select = ""
     # query = "Wii" # Temporary for now, will use other platforms later based on user selection
-    data = c.execute("SELECT * FROM video_games WHERE Year=?", (query,))
-    # data = c.execute("SELECT ? FROM video_games", (select))
-    # data = c.execute("SELECT ? FROM video_games WHERE ?", (select, query))
+
+    if category=="year":
+        data = c.execute("SELECT * FROM video_games WHERE Year=?", (query,))
+    elif category=="genre":
+        data = c.execute("SELECT * FROM video_games WHERE Genre=?", (query,))
+    elif category=="platfrom":
+        data = c.execute("SELECT * FROM video_games WHERE Platform=?", (query,))
+    elif category=="publisher":
+        data = c.execute("SELECT * FROM video_games WHERE Publisher=?", (query,))
+
     results = c.fetchall()
-    print("ran")
-    print(results)
     
     features = []
     for row in results:
@@ -92,18 +97,6 @@ def sqlToJSON(query):
         }
         features.append(feature)
 
-    # print(features)
-
-    #gamejson = {"type": "FeatureCollection", "features": []}
-
-    #gamejson["features"] = features
-
-    #dict to json conversion
-    
-    # DELETE? DON'T NEED TO WRITE TO EXTRA FILE NOW
-    # with open("static/thing.json", "w") as f:
-    #     f.write(json.dumps(features))
-    print(features)
     return features
     
 #SQL to JSON conversion
@@ -134,7 +127,7 @@ def sqlToJSON2():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # blahblah={'firstname': 'Harry', 'lastname': 'Potter'}
-    return render_template('index.html', americanSalesin2011=sqlToJSON(2011))
+    return render_template('index.html', americanSalesin2011=sqlToJSON("year",2011))
 
 @app.route('/japan', methods=['GET', 'POST'])
 def japan():
