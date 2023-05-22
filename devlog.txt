@@ -127,6 +127,15 @@ vanshS -- 2023-05-21 15:39
 "Uncaught Error: Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'totalAmericanSales' can be reused."
 ==============================================================
 
+samanthaH -- 2023-05-21 xx:xx
+--------------------------------------------------------------
+* Consolidated css files into just style.css because the css was not so different for all of the files that justified separate files
+* added bootstrap to all of the html pages
+* modified the dropdown so it was compatible with bootstrap
+* researched other features we might need for graphs we plan on building
+==============================================================
+
+
 template:
 
 fnameL -- 2023-05-xx xx:xx
