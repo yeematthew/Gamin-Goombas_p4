@@ -135,6 +135,12 @@ samanthaH -- 2023-05-21 xx:xx
 * researched other features we might need for graphs we plan on building
 ==============================================================
 
+matthewY -- 2023-05-22 03:20
+--------------------------------------------------------------
+* Improved site navigation
+ - Added landing page access from all pages
+ - Added navigation via images (map naviagation paused for now)
+==============================================================
 
 template:
 
