@@ -142,6 +142,14 @@ matthewY -- 2023-05-22 03:20
  - Added navigation via images (map naviagation paused for now)
 ==============================================================
 
+samanthaH -- 2023-05-xx xx:xx
+--------------------------------------------------------------
+* worked on frontend as per the plan established by PM
+* changed all buttons so they link to images with transparent backgrounds so the hover looks the same on all of them
+* fixed the border on the world map button so it looks right and made the region buttons on the same line for aesthetic purposes
+==============================================================
+
+
 template:
 
 fnameL -- 2023-05-xx xx:xx

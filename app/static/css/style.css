@@ -6,8 +6,6 @@ ul {
 
 body {
     background-color: #e8e9eb;
-}
-body {
     padding: 1%;
 }
 
@@ -17,4 +15,12 @@ figure {
 
 #sliderRange {
     width: 25%;
+}
+
+.continent-buttons {
+    display:inline-block;
+}
+
+.test {
+    background-color: #e8e9eb;
 }

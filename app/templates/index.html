@@ -9,8 +9,8 @@
 
         <ul>
             <form action="/">
-                <button type="submit">
-                    <img class = "img" src="https://www.clipartmax.com/png/middle/1-19271_globe-clipart-black-and-white-best-globe-black-and-black-and-white.png" alt="buttonpng" width="50" height="50"/>
+                <button class="btn btn-outline-secondary test" type="submit">
+                    <img class = "img" src="../static/img/world.png" alt="buttonpng" width="50" height="50"/>
                 </button>
             </form>
         </ul>
@@ -25,39 +25,28 @@
         <h1> Gamin' Goombas </h1>
         <p class="lead">Matthew Yee, Vivian Graeber, Samantha Hua, and Vansh Saboo </p>
 
-        <!-- temp links -->
-
-
-        <div style="display: inline-block;">
-            <form action="/europe">
-                <button class="btn btn-outline-secondary" type="submit"> 
-                    <img class = "img" src="https://www.seekpng.com/png/detail/881-8811140_open-europe-map-silhouette-png.png" alt="europeButton" border="0" width="200" height="200"/>
-                </button>
-                <figcaption class="figure-caption">Europe</figcaption>
-            </form>
-            <!-- <form action="/europe">
-                <button type="submit">
-                    <img class = "img" src="https://www.seekpng.com/png/detail/881-8811140_open-europe-map-silhouette-png.png" alt="buttonpng" border="0" width="200" height="200"/>
-                </button>
-                <figcaption class="figure-caption">Europe</figcaption>
-            </form> -->
-
-            <!-- <div style="float:left;"> -->
-            <form action="/northAmerica">
-                <button type="submit" class="btn btn-outline-secondary">
-                    <img class = "img" src="https://i.pinimg.com/originals/fa/a4/b3/faa4b39d9e920359c570430cfab4c39f.png" alt="buttonpng" border="0" width="200" height="200"/>
-                </button>
-                <figcaption class="figure-caption">North America</figcaption>
-            </form>
-            <!-- </div> -->
-            
-            <form action="/japan">
-                <button type="submit" class="btn btn-outline-secondary">
-                    <img class = "img" src="https://cdn.pixabay.com/photo/2020/11/22/21/32/japan-5768070_960_720.png" alt="buttonpng" border="0" width="200" height="200"/>
-                </button>
-                <figcaption class="figure-caption">Japan</figcaption>
-            </form>
-        </div>
+        <form action="/europe" class="continent-buttons">
+            <button class="btn btn-outline-secondary" type="submit"> 
+                
+                <img class = "img" src="https://www.pngplay.com/wp-content/uploads/6/Europe-Silhouette-PNG-Clipart-Background.png" alt="europeButton" border="0" width="200" height="200"/>
+                <!-- <img class = "img" src="https://www.seekpng.com/png/detail/881-8811140_open-europe-map-silhouette-png.png" alt="europeButton" border="0" width="200" height="200"/> -->
+            </button>
+            <figcaption class="figure-caption">Europe</figcaption>
+        </form>
+        <form action="/northAmerica" class="continent-buttons">
+            <button type="submit" class="btn btn-outline-secondary">
+                <img class = "img" src="https://i.pinimg.com/originals/fa/a4/b3/faa4b39d9e920359c570430cfab4c39f.png" alt="buttonpng" border="0" width="200" height="200"/>
+            </button>
+            <figcaption class="figure-caption">North America</figcaption>
+        </form>
+        <!-- </div> -->
+        
+        <form action="/japan" class="continent-buttons">
+            <button type="submit" class="btn btn-outline-secondary">
+                <img class = "img" src="https://cdn.pixabay.com/photo/2020/11/22/21/32/japan-5768070_960_720.png" alt="buttonpng" border="0" width="200" height="200"/>
+            </button>
+            <figcaption class="figure-caption">Japan</figcaption>
+        </form>
 
         <br>
 
@@ -66,7 +55,7 @@
         <!-- temp graph -->
         <figure class="figure">
             <canvas id="totalAmericanSalesin2011"></canvas>
-            <figcaption class="figure-caption">Sum of American Sales in three different genres across time.</figcaption>
+            <figcaption class="figure-caption">Sum of American Sales in three different genres across 2011.</figcaption>
         </figure>
 
         <p> things we might need for other graphs</p>
