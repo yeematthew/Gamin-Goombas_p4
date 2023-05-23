@@ -127,7 +127,7 @@ def sqlToJSON2():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # blahblah={'firstname': 'Harry', 'lastname': 'Potter'}
-    return render_template('index.html', americanSalesin2011=sqlToJSON("year",2011))
+    return render_template('index.html', americanSalesin2011=sqlToJSON2())
 
 @app.route('/japan', methods=['GET', 'POST'])
 def japan():

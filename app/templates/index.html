@@ -55,11 +55,70 @@
         <!-- temp graph -->
         <figure class="figure">
             <canvas id="totalAmericanSalesin2011"></canvas>
-            <figcaption class="figure-caption">Sum of American Sales in three different genres across 2011.</figcaption>
+            <figcaption class="figure-caption">Sum of American Sales in three different genres throughout 2011.</figcaption>
         </figure>
 
-        <p> things we might need for other graphs</p>
-        <input type="range" class="form-range" min="0" max="5" id="sliderRange">
+        <br>
+
+        Change the Contents of the Graph
+        <form onsubmit=init(americanSalesin2011)>
+
+        <select id="genreDropdown0">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Misc">Misc</option>
+            <option value="Platform">Platform</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+        </select>
+
+        <select id="genreDropdown1">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Misc">Misc</option>
+            <option value="Platform">Platform</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+        </select>
+
+        <select id="genreDropdown2">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Misc">Misc</option>
+            <option value="Platform">Platform</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+        </select>
+
+        <br>
+        <br>
+
+        <input type="range" class="form-range" min="1980" max="2015" value="2000" id="sliderRange">
+        <p>Year: <span id="demo"></span></p>
+
+        <button class="btn btn-outline-secondary" type="submit">
+        Re-Render Me!
+        </button>
+
+        </form>
 
         <!-- <script src="test.js"></script> -->
         <script src="../static/js/script.js"></script>
