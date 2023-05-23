@@ -161,6 +161,11 @@ matthewY -- 2023-05-23 04:30
  - Made slider functional in changing year being displayed
  - Submitting form does not yet work; page immediately reloads upon submission, no changes shown
 
+ vanshS -- 2023-05-03 21:25
+--------------------------------------------------------------
+* Fixed dropdown issue - destroy chart and update it, fixed for Japan and Europe. Need to merge charts with Japan (Vivian's line graph) later.
+==============================================================
+
 template:
 
 fnameL -- 2023-05-xx xx:xx
