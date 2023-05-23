@@ -34,8 +34,8 @@ function init(americanSalesin2011) {
     }
 
     var gameTypes = new Set();
-
-    new Chart(ctx, {
+    
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
         labels: ['fighting', 'sports', 'action'],
@@ -57,11 +57,22 @@ function init(americanSalesin2011) {
 
 function rerender(americanSalesin2011) {
 
-    e.preventDefault();
-
     console.log("I'm ALIVE");
     const ctx = document.getElementById('totalAmericanSalesin2011');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    /*
+    var oldcanv = document.getElementById('totalAmericanSalesin2011');
+    document.removeChild(oldcanv)
+
+    var canv = document.createElement('totalAmericanSalesin2011');
+    canv.id = 'canvas';
+    document.body.appendChild(canv);
+    */
+
+    var g0 = document.getElementById("genreDropdown0");
+    var g1 = document.getElementById("genreDropdown1");
+    var g2 = document.getElementById("genreDropdown2");
 
     var first = 0;
     var second = 0;
@@ -72,13 +83,13 @@ function rerender(americanSalesin2011) {
     for (dataPoint in americanSalesin2011) {
         if(americanSalesin2011[dataPoint].Year == slider.value){
             // console.log(americanSalesin2011[dataPoint].NA_Sales)
-            if (americanSalesin2011[dataPoint].Genre == "genreDropdown0") {
+            if (americanSalesin2011[dataPoint].Genre == g0) {
                 first += americanSalesin2011[dataPoint].Global_Sales
             }
-            else if (americanSalesin2011[dataPoint].Genre == "genreDropdown1") {
+            else if (americanSalesin2011[dataPoint].Genre == g1) {
                 second += americanSalesin2011[dataPoint].Global_Sales
             }
-            else if (americanSalesin2011[dataPoint].Genre == "genreDropdown2") {
+            else if (americanSalesin2011[dataPoint].Genre == g2) {
                 third += americanSalesin2011[dataPoint].Global_Sales
             }
         }
@@ -86,10 +97,14 @@ function rerender(americanSalesin2011) {
 
     var gameTypes = new Set();
 
-    new Chart(ctx, {
+    if(chart != null){
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['genreDropdown0', 'genreDropdown1', 'genreDropdown2'],
+        labels: [g0, g1, g2],
         datasets: [{
             label: 'Sales in Millions',
             data: [first, second, third],
@@ -107,5 +122,13 @@ function rerender(americanSalesin2011) {
 
 }
 
-// DOESN'T GO HERE GOES IN INDEX.HTML BUT IT THROWS AN ERROR WHEN IT'S THERE
-// var allData = JSON.parse('{{ db | tojson | safe }}');
+// preventing form default -> no reloading
+var form=document.getElementById("rerender");
+function submitForm(event){
+
+   //Preventing page refresh
+   event.preventDefault();
+}
+
+//Calling a function during form submission.
+form.addEventListener('submit', submitForm);
