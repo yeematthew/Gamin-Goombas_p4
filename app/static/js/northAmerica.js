@@ -3,7 +3,6 @@ var chart;
 function init(americanSales) {
     console.log(americanSales);
     const ctx = document.getElementById('totalAmericanSales');
-    // const ctx2 = ctx.getContext("2d")
 
     var dropdown = document.getElementById("genreDropdown");
     var selectedOption = dropdown.value;
