@@ -70,9 +70,14 @@ function rerender(americanSalesin2011) {
     document.body.appendChild(canv);
     */
 
-    var g0 = document.getElementById("genreDropdown0");
+    var g0 = document.getElementById("genreDropdown0").selectedOptions;
     var g1 = document.getElementById("genreDropdown1");
     var g2 = document.getElementById("genreDropdown2");
+
+    console.log(g0);
+
+    var thingy = document.getElementById("rerender").selectedOptions;
+    console.log(thingy);
 
     var first = 0;
     var second = 0;
