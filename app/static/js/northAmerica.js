@@ -3,29 +3,33 @@ var chart;
 function init(americanSales) {
     console.log(americanSales);
     const ctx = document.getElementById('totalAmericanSales');
-
+    // const ctx2 = ctx.getContext("2d")
 
     var dropdown = document.getElementById("genreDropdown");
     var selectedOption = dropdown.value;
 
     var years = [];
-    for (var i = 1980; i <= 2020; i++) {
+    for (var i = 1980; i <= 2015; i++) {
         years.push(String(i));
     }
 
     var yearsData = [];
-    for (var i = 1980; i <= 2020; i++) {
-        yearsData.push(0); // ThmyChart.destroy();e list is still 0-indexed, remember to subtract 1980 from the year accordingly
+    for (var i = 1980; i <= 2015; i++) {
+        yearsData.push(0); 
     }
     for(dataPoint in americanSales){
         year = americanSales[dataPoint].Year;        
-        yearsData[year - 1980] += americanSales[dataPoint].NA_Sales;
+        if(selectedOption == americanSales[dataPoint].Genre){
+            yearsData[year - 1980] += americanSales[dataPoint].NA_Sales;
+        }
     }
 
-
+    if(chart != null){
+        chart.destroy();    
+    }
     
-
-    // chart.destroy();
+    
+    
     chart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -44,5 +48,10 @@ function init(americanSales) {
         }
         }
     });
+
+
+
+
+
     // chart.destroy();
 }
