@@ -149,13 +149,17 @@ samanthaH -- 2023-05-xx xx:xx
 * fixed the border on the world map button so it looks right and made the region buttons on the same line for aesthetic purposes
 ==============================================================
 
+vivianG -- 2023-05-23 2:53
+==============================================================
+* made a line graph showcasing the sales of different types of games over the years according to the plan made by the PM
+==============================================================
+
 matthewY -- 2023-05-23 04:30
 --------------------------------------------------------------
 * Added form to modify graph on landing page
  - Added dropdowns for genre selection
  - Made slider functional in changing year being displayed
  - Submitting form does not yet work; page immediately reloads upon submission, no changes shown
-==============================================================
 
 template:
 
