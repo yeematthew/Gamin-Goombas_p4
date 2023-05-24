@@ -2,7 +2,7 @@
 SoftDev  
 P04 -- Global Gaming  
 started: 2022-04-28  
-completed: 
+completed: 2023-05-24
 
 ## Roster and Roles:
   
