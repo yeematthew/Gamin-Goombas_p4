@@ -181,6 +181,15 @@ matthewY -- 2023-05-24 02:03
 * Minor cosmetic changes and finishing touches
 ==============================================================
 
+matthewY -- 2023-05-24 03:04
+--------------------------------------------------------------
+* Updated design doc
+ - Removed interactive map; too time-consuming for a simple navigation method
+ - Added line graphs and where they were used
+ - Removed regression graphs and parallel sets; ended up not very applicable to data set being used
+ - Removed trends in publishers; didn't make it to final product
+==============================================================
+
 template:
 
 fnameL -- 2023-05-xx xx:xx
