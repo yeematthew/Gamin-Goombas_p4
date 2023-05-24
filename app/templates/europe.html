@@ -24,7 +24,26 @@
     <body onload=init(europeSales)>
         <h1> Europe </h1>
 
-        <canvas id="totalEuropeanSales"></canvas>
+        <select id="genreDropdown" onchange=reloadGraph(europeSales)>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Misc">Misc</option>
+            <option value="Platform">Platform</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="Role-Playing">Role-Playing</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+        </select>  
+
+        <canvas id="barGraph"></canvas>
+
+        <br><br><br>
+
+        <canvas id="lineGraph"></canvas>        
 
         <script src="../static/js/europe.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

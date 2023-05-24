@@ -1,7 +1,8 @@
+var chart;
+
 function init(europeSales) {
-    // console.log(data)
-    //console.log(europeSales);
-    const ctx = document.getElementById('totalEuropeanSales');
+    //////////////////////////////////////LINE GRAPH
+    const ctx = document.getElementById('lineGraph');
     var years = [];
     for (var i = 1980; i <= 2020; i++) {
         years.push(String(i));
@@ -19,8 +20,6 @@ function init(europeSales) {
     for (i in names) {
         saledataset.push([]);
     }
-    console.log("dataset:");
-    console.log(saledataset);
     for (dataPoint in europeSales) {
         for (i = 0; i < names.length; i++) {
             if (europeSales[dataPoint].Genre == names[i]) {
@@ -28,8 +27,8 @@ function init(europeSales) {
             }
         }
      }
-    // console.log(yearsData);
-    new Chart (ctx, {
+
+     new Chart (ctx, {
         type: 'line',
         data: {
             labels: years,
@@ -107,8 +106,113 @@ function init(europeSales) {
                 y: {
                 beginAtZero: true
                 }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Sales of Different Genres of Video Games in Europe Over Time"
+                }
             }
         },
     });
+
+    //////////////////////////BAR GRAPH
+    const ctx2 = document.getElementById('barGraph');
+
+    var dropdown = document.getElementById("genreDropdown");
+    var selectedOption = dropdown.value;
+
+    var years = [];
+    for (var i = 1980; i <= 2015; i++) {
+        years.push(String(i));
+    }
+
+    var yearsData = [];
+    for (var i = 1980; i <= 2015; i++) {
+        yearsData.push(0); 
+    }
+    for(dataPoint in europeSales){
+        year = europeSales[dataPoint].Year;        
+        if(selectedOption == europeSales[dataPoint].Genre){
+            yearsData[year - 1980] += europeSales[dataPoint].EU_Sales;
+        }
+    }
+
+    chart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: years,
+        datasets: [{
+            label: "# of " + selectedOption + " Sales (in millions)",
+            data: yearsData,
+            borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: selectedOption + " Sales over Time"
+                }
+            }
+            
+        }
+    });
+
 }
 
+function reloadGraph(europeSales) {
+    const ctx2 = document.getElementById('barGraph');
+
+    var dropdown = document.getElementById("genreDropdown");
+    var selectedOption = dropdown.value;
+
+    var years = [];
+    for (var i = 1980; i <= 2015; i++) {
+        years.push(String(i));
+    }
+
+    var yearsData = [];
+    for (var i = 1980; i <= 2015; i++) {
+        yearsData.push(0); 
+    }
+    for(dataPoint in europeSales){
+        year = europeSales[dataPoint].Year;        
+        if(selectedOption == europeSales[dataPoint].Genre){
+            yearsData[year - 1980] += europeSales[dataPoint].EU_Sales;
+        }
+    }
+    
+    chart.destroy();
+
+    chart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: years,
+        datasets: [{
+            label: "# of " + selectedOption + " Sales (in millions)",
+            data: yearsData,
+            borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: selectedOption + " Sales over Time"
+                }
+            }
+            
+        }
+    });
+}

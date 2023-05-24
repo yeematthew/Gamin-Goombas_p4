@@ -24,7 +24,7 @@
     <body onload=init(americanSales)>
         <h1> North America </h1>    
 
-        <select id="genreDropdown" onchange=init(americanSales)>
+        <select id="genreDropdown" onchange=reloadGraph(americanSales)>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
             <option value="Fighting">Fighting</option>
@@ -40,6 +40,10 @@
         </select>  
 
         <canvas id="totalAmericanSales"></canvas>
+
+        <br><br><br>
+        
+        <canvas id="lineGraph"></canvas>
 
         <script src="../static/js/northAmerica.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

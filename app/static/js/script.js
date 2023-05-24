@@ -1,4 +1,7 @@
 function init(americanSalesin2011) {
+    var caption = document.getElementById("caption");
+    caption.innerHTML = "Sum of American Sales in three different genres throughout 2011."
+
     // console.log(data)
     //console.log(americanSalesin2011);
     const ctx = document.getElementById('totalAmericanSalesin2011');
@@ -46,11 +49,17 @@ function init(americanSalesin2011) {
         }]
         },
         options: {
-        scales: {
-            y: {
-            beginAtZero: true
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: "American Sales of Video Games in Select Genres in " + slider.value
+                }
             }
-        }
         }
     });
 }
@@ -86,16 +95,17 @@ function rerender(americanSalesin2011) {
             if (americanSalesin2011[dataPoint].Genre == g0) {
                 first += americanSalesin2011[dataPoint].Global_Sales
             }
-            else if (americanSalesin2011[dataPoint].Genre == g1) {
+            if (americanSalesin2011[dataPoint].Genre == g1) {
                 second += americanSalesin2011[dataPoint].Global_Sales
             }
-            else if (americanSalesin2011[dataPoint].Genre == g2) {
+            if (americanSalesin2011[dataPoint].Genre == g2) {
                 third += americanSalesin2011[dataPoint].Global_Sales
             }
         }
     }
 
-    var gameTypes = new Set();
+    var caption = document.getElementById("caption");
+    caption.innerHTML = "Sum of American Sales in three different genres throughout " + slider.value + "."
 
     if(chart != null){
         chart.destroy();
@@ -112,11 +122,17 @@ function rerender(americanSalesin2011) {
         }]
         },
         options: {
-        scales: {
-            y: {
-            beginAtZero: true
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: "American Sales of Video Games in Select Genres in " + slider.value
+                }
             }
-        }
         }
     });
 
