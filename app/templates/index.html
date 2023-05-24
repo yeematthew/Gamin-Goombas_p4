@@ -25,6 +25,13 @@
         <h1> Gamin' Goombas </h1>
         <p class="lead">Matthew Yee, Vivian Graeber, Samantha Hua, and Vansh Saboo </p>
 
+        <form action="/northAmerica" class="continent-buttons">
+            <button type="submit" class="btn btn-outline-secondary">
+                <img class = "img" src="https://i.pinimg.com/originals/fa/a4/b3/faa4b39d9e920359c570430cfab4c39f.png" alt="buttonpng" border="0" width="200" height="200"/>
+            </button>
+            <figcaption class="figure-caption">North America</figcaption>
+        </form>
+
         <form action="/europe" class="continent-buttons">
             <button class="btn btn-outline-secondary" type="submit"> 
                 
@@ -33,12 +40,7 @@
             </button>
             <figcaption class="figure-caption">Europe</figcaption>
         </form>
-        <form action="/northAmerica" class="continent-buttons">
-            <button type="submit" class="btn btn-outline-secondary">
-                <img class = "img" src="https://i.pinimg.com/originals/fa/a4/b3/faa4b39d9e920359c570430cfab4c39f.png" alt="buttonpng" border="0" width="200" height="200"/>
-            </button>
-            <figcaption class="figure-caption">North America</figcaption>
-        </form>
+
         <!-- </div> -->
         
         <form action="/japan" class="continent-buttons">
@@ -49,18 +51,9 @@
         </form>
 
         <br>
-
-        
-
-        <!-- temp graph -->
-        <figure class="figure">
-            <canvas id="totalAmericanSalesin2011"></canvas>
-            <figcaption class="figure-caption" id="caption"></figcaption>
-        </figure>
-
         <br>
 
-        Change the Contents of the Graph
+        <h5>Select Three Genres</h5>
         <form onsubmit=rerender(americanSalesin2011) id="rerender">
 
         <select id="genreDropdown0">
@@ -119,6 +112,51 @@
         </button>
 
         </form>
+
+        <!-- temp graph -->
+        <figure class="figure">
+            <canvas id="totalAmericanSalesin2011"></canvas>
+            <figcaption class="figure-caption" id="caption"></figcaption>
+        </figure>
+
+        <br>
+        <br>
+
+        <h5>Platform</h5>
+
+        <select id="platformDropdown" onchange=reloadGraph(americanSalesin2011)>
+            <option value="Wii">Wii</option>
+            <option value="WiiU">WiiU</option>
+            <option value="NES">NES</option>
+            <option value="SNES">SNES</option>
+            <option value="N64">Nintendo 64</option>
+            <option value="GC">GameCube</option>
+            <option value="GB">Game Boy</option>
+            <option value="GBA">Game Boy Advance</option>
+            <option value="DS">Nintendo DS</option>
+            <option value="3DS">Nintendo 3DS</option>
+            <option value="XB">Xbox</option>
+            <option value="X360">Xbox 360</option>
+            <option value="XOne">Xbox One</option>
+            <option value="PS">PlayStation</option>
+            <option value="PS2">PlayStation 2</option>
+            <option value="PS3">PlayStation 3</option>
+            <option value="PS4">PlayStation 4</option>
+            <option value="PSP">PlayStation Portable</option>
+        </select>  
+
+        <br>
+        <br>
+
+        <h5>Time Frame</h5>
+
+        <input type="range" class="form-range" min="1980" max="2014" value="1980" id="sliderLow" onchange=reloadGraph(americanSalesin2011)>
+        <p>Lower Bound: <span id="lownum"></span></p>
+
+        <input type="range" class="form-range" min="1981" max="2015" value="2015" id="sliderHigh" onchange=reloadGraph(americanSalesin2011)>
+        <p>Upper Bound: <span id="highnum"></span></p>
+
+        <canvas id="platformgraph"></canvas>
 
         <!-- <script src="test.js"></script> -->
         <script src="../static/js/script.js"></script>

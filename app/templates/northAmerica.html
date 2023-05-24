@@ -24,6 +24,8 @@
     <body onload=init(americanSales)>
         <h1> North America </h1>    
 
+        <h5>Genre</h5>
+
         <select id="genreDropdown" onchange=reloadGraph(americanSales)>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
@@ -31,13 +33,21 @@
             <option value="Misc">Misc</option>
             <option value="Platform">Platform</option>
             <option value="Puzzle">Puzzle</option>
-            <option value="racing">Racing</option>
+            <option value="Racing">Racing</option>
             <option value="Role-Playing">Role-Playing</option>
             <option value="Shooter">Shooter</option>
             <option value="Simulation">Simulation</option>
             <option value="Sports">Sports</option>
             <option value="Strategy">Strategy</option>
         </select>  
+
+        <h5>Time Frame</h5>
+
+        <input type="range" class="form-range" min="1980" max="2014" value="1980" id="sliderLow" onchange=reloadGraph(americanSales)>
+        <p>Lower Bound: <span id="lownum"></span></p>
+
+        <input type="range" class="form-range" min="1981" max="2015" value="2015" id="sliderHigh" onchange=reloadGraph(americanSales)>
+        <p>Upper Bound: <span id="highnum"></span></p>
 
         <canvas id="totalAmericanSales"></canvas>
 

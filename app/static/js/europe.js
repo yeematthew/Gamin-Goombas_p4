@@ -2,9 +2,30 @@ var chart;
 
 function init(europeSales) {
     //////////////////////////////////////LINE GRAPH
+
+    var sliderLow = document.getElementById("sliderLow");
+    var outputLow = document.getElementById("lownum");
+
+    outputLow.innerHTML = sliderLow.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    sliderLow.oninput = function() {
+        outputLow.innerHTML = this.value;
+    }
+
+    var sliderHigh = document.getElementById("sliderHigh");
+    var outputHigh = document.getElementById("highnum");
+
+    outputHigh.innerHTML = sliderHigh.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    sliderHigh.oninput = function() {
+        outputHigh.innerHTML = this.value;
+    }
+
     const ctx = document.getElementById('lineGraph');
     var years = [];
-    for (var i = 1980; i <= 2020; i++) {
+    for (var i = 1980; i <= 2015; i++) {
         years.push(String(i));
     }
     var yearsData = [];
@@ -16,14 +37,18 @@ function init(europeSales) {
         yearsData[year - 1980] += europeSales[dataPoint].EU_Sales;
     }
     var names = ["Adventure", "Fighting", "Misc", "Platform", "Puzzle", "Racing", "Role-Playing", "Shooter", "Simulation", "Sports", "Strategy"];
-    var saledataset = [];
-    for (i in names) {
-        saledataset.push([]);
+    var genresum = [];
+    for (j in names) {
+        genresum.push([]);
+        for (i = 0; i < years.length; i++) {
+            genresum[j].push(0);
+        }
     }
     for (dataPoint in europeSales) {
         for (i = 0; i < names.length; i++) {
             if (europeSales[dataPoint].Genre == names[i]) {
-                saledataset[i].push(europeSales[dataPoint].EU_Sales);
+                var yearindex = (europeSales[dataPoint].Year - 1980);
+                genresum[i][yearindex] += europeSales[dataPoint].EU_Sales;
             }
         }
      }
@@ -35,67 +60,67 @@ function init(europeSales) {
             datasets: [
                 {
                     label: '# of '+ names[0] +' games sold (in millions)',
-                    data: saledataset[0],
+                    data: genresum[0],
                     borderColor: 'rgb(0, 128, 128)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[1] +' games sold (in millions)',
-                    data: saledataset[1],
+                    data: genresum[1],
                     borderColor: 'rgb(230, 25, 75)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[2] +' games sold (in millions)',
-                    data: saledataset[2],
+                    data: genresum[2],
                     borderColor: 'rgb(60, 180, 75)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[3] +' games sold (in millions)',
-                    data: saledataset[3],
+                    data: genresum[3],
                     borderColor: 'rgb(240, 50, 230)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[4] +' games sold (in millions)',
-                    data: saledataset[4],
+                    data: genresum[4],
                     borderColor: 'rgb(70, 240, 240)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[5] +' games sold (in millions)',
-                    data: saledataset[5],
+                    data: genresum[5],
                     borderColor: 'rgb(255, 127, 0)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[6] +' games sold (in millions)',
-                    data: saledataset[6],
+                    data: genresum[6],
                     borderColor: 'rgb(106, 255, 0)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[7] +' games sold (in millions)',
-                    data: saledataset[7],
+                    data: genresum[7],
                     borderColor: 'rgb(145, 30, 180)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[8] +' games sold (in millions)',
-                    data: saledataset[8],
+                    data: genresum[8],
                     borderColor: 'rgb(0, 128, 128)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[9] +' games sold (in millions)',
-                    data: saledataset[9],
+                    data: genresum[9],
                     borderColor: 'rgb(255, 0, 170)',
                     borderWidth: 1,
                 },
                 {
                     label: '# of '+ names[10] +' games sold (in millions)',
-                    data: saledataset[10],
+                    data: genresum[10],
                     borderColor: 'rgb(0, 149, 255)',
                     borderWidth: 1,
                 },
@@ -172,19 +197,38 @@ function reloadGraph(europeSales) {
     var dropdown = document.getElementById("genreDropdown");
     var selectedOption = dropdown.value;
 
+    var sliderLow = document.getElementById("sliderLow");
+    var lowerbound = sliderLow.value;
+
+    var sliderHigh = document.getElementById("sliderHigh");
+    var upperbound = sliderHigh.value;
+
+    var outputLow = document.getElementById("lownum");
+    var outputHigh = document.getElementById("highnum");
+
+    if(upperbound<lowerbound){
+        outputLow.innerHTML = "Invalid Time Frame";
+        outputHigh.innerHTML = "Invalid Time Frame";
+        return null;
+    }
+    else{
+        outputLow.innerHTML = lowerbound;
+        outputHigh.innerHTML = upperbound;
+    }
+
     var years = [];
-    for (var i = 1980; i <= 2015; i++) {
+    for (var i = lowerbound; i <= upperbound; i++) {
         years.push(String(i));
     }
 
     var yearsData = [];
-    for (var i = 1980; i <= 2015; i++) {
+    for (var i = lowerbound; i <= upperbound; i++) {
         yearsData.push(0); 
     }
     for(dataPoint in europeSales){
         year = europeSales[dataPoint].Year;        
         if(selectedOption == europeSales[dataPoint].Genre){
-            yearsData[year - 1980] += europeSales[dataPoint].EU_Sales;
+            yearsData[year - lowerbound] += europeSales[dataPoint].EU_Sales;
         }
     }
     

@@ -1,6 +1,6 @@
 function init(americanSalesin2011) {
     var caption = document.getElementById("caption");
-    caption.innerHTML = "Sum of American Sales in three different genres throughout 2011."
+    caption.innerHTML = "Sum of Global Sales in three different genres throughout 2000."
 
     // console.log(data)
     //console.log(americanSalesin2011);
@@ -57,7 +57,53 @@ function init(americanSalesin2011) {
             plugins: {
                 title: {
                     display: true,
-                    text: "American Sales of Video Games in Select Genres in " + slider.value
+                    text: "Global Sales of Video Games in Select Genres in " + slider.value
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('platformgraph');
+
+    var platdropdown = document.getElementById("platformDropdown");
+    var selectedOption = platdropdown.value;
+
+    var years = [];
+    for (var i = 1980; i <= 2015; i++) {
+        years.push(String(i));
+    }
+
+    var yearsData = [];
+    for (var i = 1980; i <= 2015; i++) {
+        yearsData.push(0); 
+    }
+    for(dataPoint in americanSalesin2011){
+        year = americanSalesin2011[dataPoint].Year;        
+        if(selectedOption == americanSalesin2011[dataPoint].Platform){
+            yearsData[year - 1980] += americanSalesin2011[dataPoint].Global_Sales;
+        }
+    }    
+    
+    chart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: years,
+        datasets: [{
+            label: "# of Sales of Games on " + selectedOption + " (in millions)",
+            data: yearsData,
+            borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: selectedOption + " Relevance over Time"
                 }
             }
         }
@@ -66,18 +112,7 @@ function init(americanSalesin2011) {
 
 function rerender(americanSalesin2011) {
 
-    console.log("I'm ALIVE");
     const ctx = document.getElementById('totalAmericanSalesin2011');
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    /*
-    var oldcanv = document.getElementById('totalAmericanSalesin2011');
-    document.removeChild(oldcanv)
-
-    var canv = document.createElement('totalAmericanSalesin2011');
-    canv.id = 'canvas';
-    document.body.appendChild(canv);
-    */
 
     var g0 = document.getElementById("genreDropdown0").value;
     var g1 = document.getElementById("genreDropdown1").value;
@@ -130,7 +165,77 @@ function rerender(americanSalesin2011) {
             plugins: {
                 title: {
                     display: true,
-                    text: "American Sales of Video Games in Select Genres in " + slider.value
+                    text: "Global Sales of Video Games in Select Genres in " + slider.value
+                }
+            }
+        }
+    });
+
+}
+
+function reloadGraph(americanSalesin2011) {
+    const ctx2 = document.getElementById('platformgraph');
+
+    var platdropdown = document.getElementById("platformDropdown");
+    var selectedOption = platdropdown.value;
+
+    var sliderLow = document.getElementById("sliderLow");
+    var lowerbound = sliderLow.value;
+
+    var sliderHigh = document.getElementById("sliderHigh");
+    var upperbound = sliderHigh.value;
+
+    var outputLow = document.getElementById("lownum");
+    var outputHigh = document.getElementById("highnum");
+
+    if(upperbound<lowerbound){
+        outputLow.innerHTML = "Invalid Time Frame";
+        outputHigh.innerHTML = "Invalid Time Frame";
+        return null;
+    }
+    else{
+        outputLow.innerHTML = lowerbound;
+        outputHigh.innerHTML = upperbound;
+    }
+
+    var years = [];
+    for (var i = lowerbound; i <= upperbound; i++) {
+        years.push(String(i));
+    }
+
+    var yearsData = [];
+    for (var i = lowerbound; i <= upperbound; i++) {
+        yearsData.push(0); 
+    }
+    for(dataPoint in americanSalesin2011){
+        year = americanSalesin2011[dataPoint].Year;        
+        if(selectedOption == americanSalesin2011[dataPoint].Platform){
+            yearsData[year - lowerbound] += americanSalesin2011[dataPoint].JP_Sales;
+        }
+    }    
+    
+    chart2.destroy()
+
+    chart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: years,
+        datasets: [{
+            label: "# of " + selectedOption + " Sales of Games on Platform (in millions)",
+            data: yearsData,
+            borderWidth: 1
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },            
+            plugins: {
+                title: {
+                    display: true,
+                    text: selectedOption + " Sales over Time"
                 }
             }
         }

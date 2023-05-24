@@ -126,7 +126,6 @@ def sqlToJSON2():
 # custom render_template function that adds the username to the template
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # blahblah={'firstname': 'Harry', 'lastname': 'Potter'}
     return render_template('index.html', americanSalesin2011=sqlToJSON2())
 
 @app.route('/japan', methods=['GET', 'POST'])

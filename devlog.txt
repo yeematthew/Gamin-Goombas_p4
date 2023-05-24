@@ -160,6 +160,7 @@ matthewY -- 2023-05-23 04:30
  - Added dropdowns for genre selection
  - Made slider functional in changing year being displayed
  - Submitting form does not yet work; page immediately reloads upon submission, no changes shown
+==============================================================
 
  vanshS -- 2023-05-03 21:25
 --------------------------------------------------------------
@@ -171,6 +172,13 @@ samanthaH -- 2023-05-xx xx:xx
 * fixed the caption so it updates when the year changes. fixed the graph so it displays the correct data when multiple categories are of the same genre
 * added a title to the graph which changes with the year
 * duplicated graphs for all 3 regions - had to change the structure of the chart creation to do so
+==============================================================
+
+matthewY -- 2023-05-24 02:03
+--------------------------------------------------------------
+* Added time sliders for upper and lower bounds for bar graphs on all pages
+* Added a bar graph illustrating prevelence of platforms over select time periods to main page
+* Minor cosmetic changes and finishing touches
 ==============================================================
 
 template:
